@@ -1,0 +1,149 @@
+# Dependencies
+node_modules/
+yarn.lock
+package-lock.json
+.pnp.*
+
+# Expo
+.expo/
+dist/
+web-build/
+*.env
+expo-env.d.ts
+eas.json
+
+# Build
+build/
+*.tsbuildinfo
+.tsc-output/
+
+# Native
+ios/
+android/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# Debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+.project
+.classpath
+.settings/
+
+# macOS
+.DS_Store
+*.pem
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Testing
+/coverage
+.jest/
+
+# Production
+/build
+/android/app/release
+
+# Local env files
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+
+# TypeScript
+*.tsbuildinfo
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# CocoaPods
+/ios/Pods/
+
+# Optional npm cache directory
+.npm
+
+# ESLint cache and temp files
+.eslintcache
+.eslintcache/
+*.eslintcache
+
+# Prettier cache and temp files
+.prettier.cache
+**/.prettier.cache
+.prettier-cache/
+
+# Bundle artifact
+*.bundle
+*.jsbundle
+
+# Project specific
+.expo-shared/
+app-example/
+expo-env.d.ts
+
+# Generated files
+eas.json
+*.generated.tsx
+*.generated.ts
+.prettierrc.js
+eslint.config.js
+
+# Assets that might be regenerated
+assets/adaptive-icon.*
+assets/favicon.*
+assets/icon.*
+assets/splash.*
+
+# Editor backup files
+*~
+*.bak
+*.backup

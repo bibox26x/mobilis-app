@@ -1,0 +1,46 @@
+{
+  "name": "mobilis",
+  "main": "expo-router/entry",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "expo start",
+    "reset-project": "node ./scripts/reset-project.js",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
+    "@react-native-async-storage/async-storage": "^2.1.2",
+    "@react-navigation/native": "^7.1.9",
+    "expo": "~53.0.9",
+    "expo-constants": "~17.1.6",
+    "expo-image": "~2.1.7",
+    "expo-linking": "~7.1.5",
+    "expo-router": "~5.0.6",
+    "expo-splash-screen": "~0.30.8",
+    "expo-status-bar": "~2.2.3",
+    "expo-system-ui": "~5.0.7",
+    "react": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.10.0",
+    "react-native-vector-icons": "^10.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.3",
+    "@eslint/js": "^9.27.0",
+    "@types/react": "~19.0.10",
+    "@types/react-native-vector-icons": "^6.4.18",
+    "eslint": "^9.27.0",
+    "eslint-config-expo": "~9.2.0",
+    "eslint-config-universe": "^15.0.3",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-native": "^5.0.0",
+    "typescript": "~5.8.3"
+  },
+  "private": true
+}
