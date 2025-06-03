@@ -1,58 +1,39 @@
 import { Stack } from 'expo-router';
+import { Platform } from 'react-native';
 import ThemeProvider from './context/ThemeContext';
 
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <Stack>
-        <Stack.Screen
-          name="index"
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          animation: 'fade',
+          animationDuration: 200,
+        }}
+      >
+        <Stack.Screen name="index" />
+        
+        {/* Home group */}
+        <Stack.Screen 
+          name="home" 
           options={{
-            // Login screen with fade animation
             headerShown: false,
-            animation: 'fade',
-            presentation: 'card',
-            animationDuration: 100,
-            gestureEnabled: false,
           }}
         />
 
-        {/* Modal style routes (settings) */}
-        <Stack.Screen
-          name="home/settings"
-          options={{
-            headerShown: false,
-            animation: 'fade',
-            presentation: 'card',
-            animationDuration: 100,
-            gestureEnabled: false,
-            animationTypeForReplace: 'pop',
-          }}
-        />
-
-        {/* Slide animation routes (main app flow) */}
+        {/* Modal screen */}
         <Stack.Screen
           name="home/taskdetails"
           options={{
-            headerShown: false,
-            animation: 'slide_from_bottom',
             presentation: 'modal',
-            animationDuration: 200,
+            animation: 'slide_from_bottom',
+            animationDuration: 300,
             gestureEnabled: true,
-            gestureDirection: 'horizontal',
-            animationTypeForReplace: 'push',
-          }}
-        />
-
-        {/* Default route */}
-        <Stack.Screen
-          name="home/mainpage"
-          options={{
             headerShown: false,
-            animation: 'fade',
-            presentation: 'card',
-            animationDuration: 100,
-            gestureEnabled: false,
+            contentStyle: {
+              backgroundColor: 'transparent',
+            },
           }}
         />
       </Stack>

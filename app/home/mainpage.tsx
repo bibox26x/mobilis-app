@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Footer from '@/app/components/Footer';
+
 import Header from '@/app/components/Header';
 import { useTheme, theme } from '@/app/context/ThemeContext';
 import { api } from '@/app/utils/apiClient';
@@ -130,6 +130,7 @@ export default function PlanningsManagementRN() {
   const handleTaskPress = (task: Task) => {
     try {
       const serializedTask = JSON.stringify(task);
+      // @ts-ignore: Expo Router type limitation for modal navigation
       router.push({
         pathname: '/home/taskdetails',
         params: { task: serializedTask },
@@ -153,7 +154,6 @@ export default function PlanningsManagementRN() {
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color={theme.light.primary} />
           </View>
-          <Footer currentRoute="tasks" />
         </View>
       </SafeAreaView>
     );
@@ -176,7 +176,6 @@ export default function PlanningsManagementRN() {
               No planning available
             </Text>
           </View>
-          <Footer currentRoute="tasks" />
         </View>
       </SafeAreaView>
     );
@@ -295,7 +294,6 @@ export default function PlanningsManagementRN() {
             </View>
           </View>
         </ScrollView>
-        <Footer currentRoute="tasks" />
       </View>
     </SafeAreaView>
   );

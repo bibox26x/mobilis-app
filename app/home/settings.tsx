@@ -12,7 +12,7 @@ import { ImageCache } from '@/app/components/ImageCache';
 import { useRouter } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Footer from '@/app/components/Footer';
+
 import Header from '@/app/components/Header';
 import { useTheme, theme } from '@/app/context/ThemeContext';
 import { api } from '@/app/utils/apiClient';
@@ -218,7 +218,7 @@ export default function Settings() {
             <Text style={styles.logoutButtonText}>Log Out</Text>
           </TouchableOpacity>
         </ScrollView>
-        <Footer currentRoute="settings" />
+
       </View>
     </SafeAreaView>
   );

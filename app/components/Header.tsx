@@ -6,9 +6,10 @@ import { useTheme, theme } from '@/app/context/ThemeContext';
 
 type HeaderProps = {
   showBackButton?: boolean;
+  onBackPress?: () => void;
 };
 
-export default function Header({ showBackButton = true }: HeaderProps) {
+export default function Header({ showBackButton = true, onBackPress }: HeaderProps) {
   const router = useRouter();
   const { isDarkMode } = useTheme();
   const currentTheme = isDarkMode ? theme.dark : theme.light;
@@ -27,7 +28,7 @@ export default function Header({ showBackButton = true }: HeaderProps) {
           style={[styles.header, { backgroundColor: currentTheme.background }]}>
           {showBackButton ? (
             <TouchableOpacity
-              onPress={() => router.back()}
+              onPress={onBackPress || (() => router.back())}
               style={styles.headerBackButton}>
               <Text
                 style={[
