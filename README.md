@@ -65,8 +65,6 @@ utils/
 ## 📝 API Integration
 
 - Protected REST API endpoints with JWT authentication.
-- API base: `https://backend-mobilis-production.up.railway.app/api`
-
 ---
 
 ## 🧑‍💻 Development
@@ -79,8 +77,6 @@ npm run android
 npm run ios
 ```
 
-- **Branching:**  
-  Major refactors and new features are developed in feature branches (e.g., `dev`, `navigation-refactor`).
 
 ---
 
