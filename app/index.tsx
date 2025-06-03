@@ -9,9 +9,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { ImageCache } from './components/ImageCache';
-import { useTheme, theme } from './context/ThemeContext';
-import { api } from './utils/apiClient';
+import { ImageCache } from '../utils/components/ImageCache';
+import { useTheme, theme } from '../utils/context/ThemeContext';
+import { api } from '../utils/utils/apiClient';
 
 interface LoginResponse {
   token: string;

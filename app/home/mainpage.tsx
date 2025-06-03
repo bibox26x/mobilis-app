@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import { useFocusEffect } from '@react-navigation/native';
+
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   ActivityIndicator,
@@ -13,9 +13,9 @@ import {
   View,
 } from 'react-native';
 
-import Header from '@/app/components/Header';
-import { useTheme, theme } from '@/app/context/ThemeContext';
-import { api } from '@/app/utils/apiClient';
+import Header from '@/utils/components/Header';
+import { useTheme, theme } from '@/utils/context/ThemeContext';
+import { api } from '@/utils/utils/apiClient';
 
 // Type definitions
 interface PDV {
@@ -86,53 +86,51 @@ export default function PlanningsManagementRN() {
     }
   }, [isDarkMode, currentTheme.background]);
 
-  useFocusEffect(
-    useCallback(() => {
-      const getData = async () => {
-        try {
-          const planningsRes = await api.get<Planning>('/users/planning');
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const planningsRes = await api.get<Planning>('/users/planning');
 
-          if (__DEV__) {
-            console.log(
-              '\n=== API Response ===\n',
-              JSON.stringify(planningsRes, null, 2),
-              '\n==================\n'
-            );
-          }
-
-          // Use the planning response directly since it matches our interface
-          const planning = {
-            id: planningsRes.id,
-            startDate: planningsRes.startDate,
-            endDate: planningsRes.endDate,
-            description: planningsRes.description,
-            details: planningsRes.details || [],
-          };
-
-          setSelected(planning);
-          setLoading(false);
-        } catch (error) {
-          console.error('Error fetching planning:', error);
-          if (
-            error instanceof Error &&
-            error.message.includes('Session expired')
-          ) {
-            router.replace('/');
-          }
-          setLoading(false);
+        if (__DEV__) {
+          console.log(
+            '\n=== API Response ===\n',
+            JSON.stringify(planningsRes, null, 2),
+            '\n==================\n'
+          );
         }
-      };
 
-      getData();
-    }, [])
-  );
+        // Use the planning response directly since it matches our interface
+        const planning = {
+          id: planningsRes.id,
+          startDate: planningsRes.startDate,
+          endDate: planningsRes.endDate,
+          description: planningsRes.description,
+          details: planningsRes.details || [],
+        };
+
+        setSelected(planning);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching planning:', error);
+        if (
+          error instanceof Error &&
+          error.message.includes('Session expired')
+        ) {
+          router.replace('/');
+        }
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
 
   const handleTaskPress = (task: Task) => {
     try {
       const serializedTask = JSON.stringify(task);
       // @ts-ignore: Expo Router type limitation for modal navigation
       router.push({
-        pathname: '/home/taskdetails',
+        pathname: '/taskdetails',
         params: { task: serializedTask },
       });
     } catch (error) {

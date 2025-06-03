@@ -8,14 +8,14 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import { ImageCache } from '@/app/components/ImageCache';
+import { ImageCache } from '@/utils/components/ImageCache';
 import { useRouter } from 'expo-router';
-import { useFocusEffect } from '@react-navigation/native';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import Header from '@/app/components/Header';
-import { useTheme, theme } from '@/app/context/ThemeContext';
-import { api } from '@/app/utils/apiClient';
+import Header from '@/utils/components/Header';
+import { useTheme, theme } from '@/utils/context/ThemeContext';
+import { api } from '@/utils/utils/apiClient';
 
 interface UserData {
   id: number;
@@ -63,16 +63,10 @@ export default function Settings() {
     }
   }, []);
 
-  useFocusEffect(
-    useCallback(() => {
-      fetchUserData();
-
-      // Cleanup function
-      return () => {
-        // Cancel any pending requests if needed
-      };
-    }, [fetchUserData])
-  );
+  React.useEffect(() => {
+    fetchUserData();
+    // Cleanup logic could be added here if needed
+  }, [fetchUserData]);
 
   const handleLogout = async () => {
     try {

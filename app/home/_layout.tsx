@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
-import CustomTabBar from '../components/CustomTabBar';
+import CustomTabBar from '../../utils/components/CustomTabBar';
 import React from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../../utils/context/ThemeContext';
 
 const HomeLayout: React.FC = () => {
   return (

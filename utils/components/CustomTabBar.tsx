@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Platform, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useTheme, theme } from '@/app/context/ThemeContext';
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { useTheme, theme } from '@/utils/context/ThemeContext';
+
 
 const ICONS: Record<'mainpage' | 'settings', { name: React.ComponentProps<typeof MaterialIcons>['name']; label: string }> = {
   mainpage: { name: 'assignment', label: 'Tasks' },
@@ -16,7 +16,19 @@ const BOTTOM_INSET = Platform.select({
   android: StatusBar.currentHeight ? Math.max(StatusBar.currentHeight - 10, 0) : 0,
 });
 
-const CustomTabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigation }) => {
+import { Tabs, useRouter, useSegments } from 'expo-router';
+
+interface CustomTabBarProps {
+  state: {
+    index: number;
+    routes: { key: string; name: string }[];
+  };
+  descriptors: Record<string, any>;
+}
+
+const CustomTabBar: React.FC<CustomTabBarProps> = ({ state, descriptors }) => {
+  const router = useRouter();
+  const segments = useSegments();
   const { isDarkMode } = useTheme();
   const currentTheme = isDarkMode ? theme.dark : theme.light;
 
@@ -34,7 +46,8 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigat
             const icon = ICONS[name];
             const onPress = () => {
               if (!focused) {
-                navigation.navigate(route.name);
+               // @ts-ignore
+                router.push(`/home/${route.name}`);
               }
             };
             return (

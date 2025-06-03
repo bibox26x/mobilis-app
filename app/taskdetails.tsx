@@ -14,9 +14,9 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Header from '@/app/components/Header';
-import { useTheme, theme } from '@/app/context/ThemeContext';
-import { api } from '@/app/utils/apiClient';
+import Header from '@/utils/components/Header';
+import { useTheme, theme } from '@/utils/context/ThemeContext';
+import { api } from '@/utils/utils/apiClient';
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -738,3 +738,5 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
 });
+
+

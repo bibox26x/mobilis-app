@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { ImageCache } from '@/app/components/ImageCache';
-import { useTheme, theme } from '@/app/context/ThemeContext';
+import { ImageCache } from '@/utils/components/ImageCache';
+import { useTheme, theme } from '@/utils/context/ThemeContext';
 
 type HeaderProps = {
   showBackButton?: boolean;

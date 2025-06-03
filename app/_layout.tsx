@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 import { Platform } from 'react-native';
-import ThemeProvider from './context/ThemeContext';
+import ThemeProvider from '../utils/context/ThemeContext';
 
 export default function RootLayout() {
   return (
@@ -24,7 +24,7 @@ export default function RootLayout() {
 
         {/* Modal screen */}
         <Stack.Screen
-          name="home/taskdetails"
+          name="taskdetails"
           options={{
             presentation: 'modal',
             animation: 'slide_from_bottom',
