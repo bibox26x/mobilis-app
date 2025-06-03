@@ -1,58 +1,75 @@
 # 📱 Mobilis App
 
-> A modern React Native application for managing Mobilis points of sale (PDV) tasks and planning.
+> A modern, modular React Native app for managing Mobilis points of sale (PDV) tasks and planning.
 
 [![React Native](https://img.shields.io/badge/React_Native-0.79-blue.svg)](https://reactnative.dev/)
 [![Expo](https://img.shields.io/badge/Expo-53.0-black.svg)](https://expo.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
 
+---
+
 ## ✨ Features
 
-- 🔐 **Secure Authentication** with JWT and Remember Me
-- 📅 **Planning Management** with date ranges
-- 📋 **Task Tracking** for PDV locations
-- 🔄 **Real-time Status** monitoring
-- ✅ **Verification System** for task completion
-- 🎨 **Modern UI/UX** with smooth animations
+- 🔐 Secure JWT authentication with persistent login
+- 📋 Task management and planning for PDV locations
+- 🗂️ Modern file-based navigation using **Expo Router**
+- 🚀 Modular, type-safe codebase with strict TypeScript
+- 🎨 Custom tab bar and theme support (dark/light)
+- 📱 Responsive, smooth UI/UX with animations and error handling
 
-## 🚀 Quick Start
+---
+
+## 🚀 Getting Started
 
 ```bash
 # Install dependencies
 npm install
 
-# Start the app
+# Start the app (Expo Go)
 npx expo start
 ```
 
+---
+
 ## 🛠️ Tech Stack
 
-- **Frontend**: React Native + Expo
-- **Navigation**: Expo Router
-- **State**: React Hooks
-- **Storage**: AsyncStorage
-- **Styling**: StyleSheet
+- **Frontend:** React Native + Expo
+- **Navigation:** Expo Router (file-based)
+- **State:** React Hooks
+- **Storage:** AsyncStorage
+- **Styling:** StyleSheet, theme context
+- **API:** REST (JWT-protected)
 
-## 📱 Core Features
+---
 
-### 🔑 Authentication
-- JWT token-based system
-- Persistent login with Remember Me
-- Auto-logout security
+## 📁 Project Structure
 
-### 📊 Task Management
-- Real-time task status tracking
-- Location-based task assignment
-- Completion verification system
-- Detailed PDV information
+```
+app/
+  _layout.tsx           # Root stack navigation (Expo Router)
+  index.tsx             # Login screen
+  home/
+    _layout.tsx         # Tabs navigation
+    mainpage.tsx        # Main tasks page
+    settings.tsx        # User settings
+  taskdetails.tsx       # Modal task details
+  +not-found.tsx        # 404 fallback
+utils/
+  components/           # Reusable UI components (Header, CustomTabBar, etc.)
+  context/              # Theme context provider
+  utils/                # API client and helpers
+```
 
-### 💫 UI/UX
-- Smooth transitions & animations
-- Loading states & error handling
-- Modern card-based design
-- Status indicators & badges
+---
 
-## 🔧 Development
+## 📝 API Integration
+
+- Protected REST API endpoints with JWT authentication.
+- API base: `https://backend-mobilis-production.up.railway.app/api`
+
+---
+
+## 🧑‍💻 Development
 
 ```bash
 # Run on Android
@@ -60,14 +77,17 @@ npm run android
 
 # Run on iOS
 npm run ios
-
 ```
 
-## 📝 API Integration
+- **Branching:**  
+  Major refactors and new features are developed in feature branches (e.g., `dev`, `navigation-refactor`).
 
-Protected REST API endpoints with JWT authentication at:
-`http://localhost:5000/api`
+---
 
-## 📖 Note
+## 📖 Notes
 
-This app is for Mobilis internal use only and requires valid authentication credentials.
+- This app is for Mobilis internal use only and requires valid authentication credentials.
+- Built with Expo Router for scalable, maintainable navigation and modular code organization.
+
+---
+
